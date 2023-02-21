@@ -1,4 +1,6 @@
 import React from "react";
+import { TodoInterface } from "./interfaces";
+
 
 /** Simple presentation component for a todo.
  *
@@ -8,12 +10,12 @@ import React from "react";
  * { EditableTodo, TopTodo } -> Todo
  **/
 
-function Todo({ todo }) {
+function Todo({ todo }: { todo: TodoInterface; }): JSX.Element {
   return (
-      <div className="Todo">
-        <div><b>{todo.title}</b> <small>(priority: {todo.priority})</small></div>
-        <div><small>{todo.description}</small></div>
-      </div>
+    <div className="Todo">
+      <div><b>{todo.title}</b> <small>(priority: {todo.priority})</small></div>
+      <div><small>{todo.description}</small></div>
+    </div>
   );
 }
 
