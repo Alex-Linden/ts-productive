@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import QuoteDisplay from "./QuoteDisplay";
+import { QuoteInterfaceAPI, QuoteInterface } from "./interfaces";
 
 /** Component that retrieves and sets an inspirational quote,
  * shown by a child component (QuoteDisplay).
@@ -15,11 +16,11 @@ import QuoteDisplay from "./QuoteDisplay";
  * App -> QuoteApp -> QuoteDisplay
  */
 function QuoteApp() {
-  const [quote, setQuote] = useState(null);
+  const [quote, setQuote] = useState<QuoteInterface | null>(null);
 
   /** retrieve a random quote from quotes API */
-  async function getQuote() {
-    const response = await axios.get("https://inspo-quotes-api.herokuapp.com/quotes/random");
+  async function getQuote(): Promise<void> {
+    const response = await axios.get<QuoteInterfaceAPI>("https://inspo-quotes-api.herokuapp.com/quotes/random");
     const randomQuote = response.data.quote;
     setQuote(randomQuote);
   }

@@ -15,3 +15,7 @@ export interface QuoteInterface {
   text: string;
   author: string;
 }
+
+export interface QuoteInterfaceAPI {
+  quote: QuoteInterface;
+}
