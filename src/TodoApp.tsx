@@ -5,6 +5,8 @@ import TodoForm from "./TodoForm";
 import EditableTodoList from "./EditableTodoList";
 import TopTodo from "./TopTodo";
 
+import { TodoInterface } from "./interfaces";
+
 /** App for managing a todo list.
  *
  * Props:
@@ -17,18 +19,18 @@ import TopTodo from "./TopTodo";
  * App -> TodoApp -> { TodoForm, EditableTodoList }
  */
 
-function TodoApp({ initialTodos }) {
+function TodoApp({ initialTodos }: {initialTodos: TodoInterface[]}): JSX.Element {
   const [todos, setTodos] = useState(initialTodos);
 
   console.log("TodoApp", initialTodos, todos);
 
   /** add a new todo to list */
-  function create(newTodo) {
+  function create(newTodo: TodoInterface): void {
     setTodos(todos => [...todos, { id: uuid(), ...newTodo }]);
   }
 
   /** update a todo with updatedTodo */
-  function update(updatedTodo) {
+  function update(updatedTodo: TodoInterface): void {
     setTodos(todos =>
         todos.map(todo =>
             todo.id === updatedTodo.id ? updatedTodo : todo,
@@ -37,7 +39,7 @@ function TodoApp({ initialTodos }) {
   }
 
   /** delete a todo by id */
-  function remove(id) {
+  function remove(id: string): void {
     setTodos(todos => todos.filter(todo => todo.id !== id));
   }
 
