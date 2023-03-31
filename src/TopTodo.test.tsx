@@ -5,14 +5,14 @@ import TopTodo from "./TopTodo";
 const emptyTodos = [];
 
 const todo1 = {
-  id: 1,
+  id: "1",
   title: "Code!",
   description: "Write important code",
   priority: 2,
 };
 
 const todo2 = {
-  id: 1,
+  id: "1",
   title: "Code again!",
   description: "Write less-important code",
   priority: 11,
