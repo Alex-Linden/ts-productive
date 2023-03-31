@@ -18,7 +18,7 @@ interface TodoListProps {
   remove: (id: string) => void;
 }
 
-function EditableTodoList({ todos, update, remove }: TodoListProps): JSX.Element[] {
+function EditableTodoList({ todos, update, remove }: TodoListProps) {
   return todos.map(todo => (
     <EditableTodo
       key={todo.id}
